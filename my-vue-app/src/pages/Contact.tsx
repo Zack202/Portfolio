@@ -4,10 +4,12 @@ import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Me from '../models/Me';
+// import Me from '../models/Me';
 import Loader from '../components/Loader';
 import useAlert from '../hooks/useAlert';
 import Alert from '../components/Alert';
+
+const Me = React.lazy(() => import('../models/Me'));
 
 
 interface ImportMetaEnv {

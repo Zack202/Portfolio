@@ -1,10 +1,14 @@
-import { Suspense, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
-import Planet from '../models/Planet'
 import { Euler, Vector3 } from 'three'
-import Space from '../models/Space'
-import Comet from '../models/Comet'
+// import Space from '../models/Space'
+// import Comet from '../models/Comet'
+// import Planet from '../models/Planet'
+
+const Space = React.lazy(() => import('../models/Space'))
+const Planet = React.lazy(() => import('../models/Planet'))
+const Comet = React.lazy(() => import('../models/Comet'))
 
 const HomePage = () => {
   const [isRotating, setIsRotating] = useState(false)
