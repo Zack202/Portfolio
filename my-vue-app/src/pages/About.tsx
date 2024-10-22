@@ -17,7 +17,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col, gap-3 text-slate-500 dark:text-slate-200'>
         <p>
-        I'm an aspiring Software Engineer currently based in Seaford, NY. I have a strong passion for developing innovative and intresting solutions and am particularly interested in roles related to artificial intelligence and data science. My journey in technology is driven by a desire to solve complex problems and make a positive impact through my work.
+        I'm a Software Engineer currently based in Seaford, NY. I have a strong passion for developing innovative and intresting solutions and am particularly interested in roles related to artificial intelligence and data science. My journey in technology is driven by a desire to solve complex problems and make a positive impact through my work.
         </p>
       </div>
 

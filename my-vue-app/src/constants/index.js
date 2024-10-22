@@ -1,4 +1,3 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
 import {
     car,
     contact,
@@ -211,7 +210,7 @@ export const projects = [
         iconUrl: map,
         theme: 'btn-back-blue',
         name: 'Full Stack Map Editor (My Map Styler)',
-        description: 'Designed and built full stack application that allows users to edit, customize and share their own or other maps. Users can make various maps and customize them with different colors, icons, and text.',
+        description: 'Collaboratively designed and built a full stack application as part of a team, allowing users to edit, customize, and share maps. Contributed to features enabling users to create and customize maps with different colors, icons, and text.',
         link: 'https://github.com/Zack202/MyMapStylerFrontend',
         link2: 'https://github.com/Zack202/MyMapStylerBackend'
     },
@@ -219,7 +218,7 @@ export const projects = [
         iconUrl: pricewise,
         theme: 'btn-back-red',
         name: 'Microcenter Price Tracker',
-        description: 'Developed an application that tracks various products, helping users find the best deals. This was made possible in a Jupyter notebook using the BeautifulSoup library in python to scrape data from the Microcenter website.',
+        description: 'Developed an application that tracks various products, helping users find the best deals. This was made possible in a Jupyter notebook using the BeautifulSoup library in python to scrape data from Micro Center\'s website.',
         link: 'https://github.com/Zack202/Product-Tracker',
     },
     {
@@ -233,7 +232,7 @@ export const projects = [
         iconUrl: doc,
         theme: 'btn-back-yellow',
         name: 'NLP Systems Portfolio',
-        description: 'Developed a portfolio of Natural Language Processing (NLP) systems, including a named entity recognition, sentiment analyzer, and a semantic textual similarity.',
+        description: 'Developed a portfolio of Natural Language Processing (NLP) systems, including a named entity recognition extraction, textual sentiment analyzer, and a semantical similarity analyzer.',
         link: 'https://github.com/Zack202/NLP-Systems',
     },
     {

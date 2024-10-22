@@ -24,7 +24,7 @@ function Projects() {
       </div>
 
       <div className='flex flex-wrap my-20 gap-16'>
-        {projects.map((project : {name : string, theme : string, iconUrl :string, description: string, link:string}) => (
+        {projects.map((project : {name : string, theme : string, iconUrl :string, description: string, link:string, link2:string}) => (
           <div className='lg:w-[400px] w-full' key={project.name}>
             <div className='block-container w-12 h-12'>
               <div className={`btn-back rounded-xl ${project.theme}`} style={{
@@ -51,17 +51,40 @@ function Projects() {
               {project.description}
             </p>
             <div className='mt-5 flex items-center gap-2 font-poppins'>
-              <Link
-                to= {project.link}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='font-semibold text-blue-600 hover:text-blue-700'>
-                GitHub Link
-              </Link>
-              <img
-                src={arrow}
-                alt="arrow"
-                className='w-4 h-4 object-contain' />
+              {project.link && (
+                <>
+                  <Link
+                    to={project.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='font-semibold text-blue-600 hover:text-blue-700'>
+                    GitHub Link
+                  </Link>
+                  {!project.link2 && (
+                  <img
+                    src={arrow}
+                    alt="arrow"
+                    className='w-4 h-4 object-contain' />
+                  )}
+                </>
+              )}
+              {project.link2 && (
+                <>
+                <Link
+                  to={project.link2}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='font-semibold text-blue-600 hover:text-blue-700'>
+                  GitHub Link
+                </Link>
+                <img
+                  src={arrow}
+                  alt="arrow"
+                  className='w-4 h-4 object-contain' />
+              </>
+              
+              
+              )}
 
           </div>
           </div>

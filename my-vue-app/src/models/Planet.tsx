@@ -92,25 +92,25 @@ const Planet = (
       if (planetRef.current) {
         planetRef.current.rotation.y -= 0.01 * Math.PI;
       }
-      rotationSpeedY.current = -0.01 * Math.PI;
+      rotationSpeedX.current = -0.01 * Math.PI;
     } else if (event.key === 'ArrowLeft') {
       if (!isRotating) setIsRotating(true);
       if (planetRef.current) {
         planetRef.current.rotation.y += 0.01 * Math.PI;
       }
-      rotationSpeedY.current = 0.01 * Math.PI;
+      rotationSpeedX.current = 0.01 * Math.PI;
     } else if (event.key === 'ArrowUp') {
       if (!isRotating) setIsRotating(true);
       if (planetRef.current) {
         planetRef.current.rotation.x -= 0.01 * Math.PI;
       }
-      rotationSpeedX.current = -0.01 * Math.PI;
+      rotationSpeedY.current = -0.01 * Math.PI;
     } else if (event.key === 'ArrowDown') {
       if (!isRotating) setIsRotating(true);
       if (planetRef.current) {
         planetRef.current.rotation.x += 0.01 * Math.PI;
       }
-      rotationSpeedX.current = 0.01 * Math.PI;
+      rotationSpeedY.current = 0.01 * Math.PI;
     }
   };
 
@@ -120,9 +120,29 @@ const Planet = (
     }
   };
 
-  // This function is called on each frame update
+  const handleTouchMove = (event: TouchEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+  
+    if (isRotating) {
+      const clientX = event.touches[0].clientX;
+      const clientY = event.touches[0].clientY;
+      
+      lastX.current = clientX;
+      lastY.current = clientY;
+    }
+  };
+
+  const handleTouchEnd = (event: TouchEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setIsRotating(false);
+  }
+
+
+
   useFrame(() => {
-    // If not rotating, apply damping to slow down the rotation (smoothly)
+    //If not rotating, apply damping to slow down the rotation (smoothly)
     if (!isRotating) {
       // Apply damping factor
       rotationSpeedX.current *= dampingFactor;
@@ -146,12 +166,12 @@ const Planet = (
       ((planetRef.current.rotation.x % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
       const normalizedRotationY =
       ((planetRef.current.rotation.y % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-      if (normalizedRotationX < 0.1) {
-        planetRef.current.rotation.x = 0;
-      }
+      // if (normalizedRotationX < 0.1) {
+      //   planetRef.current.rotation.x = 0;
+      // }
       // Set the current stage based on the planet's orientation
       switch (true) {
-      case normalizedRotationY >= 5.45 && normalizedRotationY <= 5.85:
+      case normalizedRotationX >= 5.45 && normalizedRotationY <= 5.85:
         setCurrentStage(4);
         break;
       case normalizedRotationY >= 0.85 && normalizedRotationY <= 1.3:
@@ -176,6 +196,9 @@ const Planet = (
     canvas.addEventListener('pointerup', handlePointerUp);
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
+    canvas.addEventListener('touchmove', handleTouchMove);
+    canvas.addEventListener('touchend', handleTouchEnd);
+
 
     return () => {
       canvas.removeEventListener('pointerdown', handlePointerDown);
@@ -183,8 +206,10 @@ const Planet = (
       canvas.removeEventListener('pointerup', handlePointerUp);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [gl, handlePointerDown, handlePointerMove, handlePointerUp, handleKeyDown, handleKeyUp]);
+  }, [gl, handlePointerDown, handlePointerMove, handlePointerUp, handleKeyDown, handleKeyUp, handleTouchMove, handleTouchEnd]);
 
   return (
     <a.group ref={planetRef} position={position} scale={scale} rotation={initialRotation.current} >

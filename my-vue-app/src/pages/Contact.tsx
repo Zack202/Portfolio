@@ -178,9 +178,9 @@ const Contact = () => {
           <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2}/>
           <Suspense fallback={<Loader/>}>
             <Me 
-              position={[0, -2.5, 0]}
-              rotation={[0, 0, 0]}
-              scale={[3, 3, 3]}
+              position={[0, -2.5, -0.5]}
+              rotation={[0.05, -0.05, 0]}
+              scale={[2.75, 2.75, 2.75]}
               currentAnimation={currentAnimation}
             />
           </Suspense>
