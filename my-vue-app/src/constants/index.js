@@ -162,7 +162,7 @@ export const experiences = [
             "Supported over 300 students in advanced probability and statistics courses, ensuring they gained a solid understanding of complex mathematical concepts.",
             "Collaborated closely with professors to align teaching strategies and materials with course objectives, enhancing the learning experience for students.",
             "Facilitated group discussions, review sessions, and one-on-one meetings to reinforce key topics, helping students prepare for exams and improve their academic performance.",
-            "Played an integral role in grading assignments and exams, ensuring fairness and consistency while providing constructive feedback to help students improve",
+            "Played an integral role in grading assignments and exams, ensuring fairness and consistency while providing constructive feedback to help students improve.",
         ],
     },
     {
